@@ -13,13 +13,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.lineageos.updater;
+package com.awaken.updater.model;
 
-import androidx.appcompat.app.AppCompatActivity;
+public enum UpdateStatus {
+    UNKNOWN,
+    STARTING,
+    DOWNLOADING,
+    PAUSED,
+    PAUSED_ERROR,
+    DELETED,
+    VERIFYING,
+    VERIFIED,
+    VERIFICATION_FAILED,
+    INSTALLING,
+    INSTALLED,
+    INSTALLATION_FAILED,
+    INSTALLATION_CANCELLED,
+    INSTALLATION_SUSPENDED;
 
-import org.lineageos.updater.model.UpdateInfo;
-
-public abstract class UpdatesListActivity extends AppCompatActivity {
-    public abstract void exportUpdate(UpdateInfo update);
-    public abstract void showSnackbar(int stringId, int duration);
+    public static final class Persistent {
+        public static final int UNKNOWN = 0;
+        public static final int INCOMPLETE = 1;
+        public static final int VERIFIED = 2;
+    }
 }
